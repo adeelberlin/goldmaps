@@ -1,0 +1,46 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Room name:</strong>
+  <%= @node.room_name %>
+</p>
+
+<p>
+  <strong>Room number:</strong>
+  <%= @node.room_number %>
+</p>
+
+<p>
+  <strong>Room capacity:</strong>
+  <%= @node.room_capacity %>
+</p>
+
+<p>
+  <strong>X:</strong>
+  <%= @node.x %>
+</p>
+
+<p>
+  <strong>Y:</strong>
+  <%= @node.y %>
+</p>
+
+<p>
+  <strong>Floor:</strong>
+  <%= @node.floor %>
+</p>
+
+<p>
+  <strong>Building:</strong>
+  <%= @node.building %>
+</p>
+
+<p>
+  <strong>children:</strong>
+  <% @node.children.each do |child| %>
+    <%= child.room_name %>
+  <% end %>
+</p>
+
+<%= link_to 'Edit', edit_node_path(@node) %> |
+<%= link_to 'Back', nodes_path %>

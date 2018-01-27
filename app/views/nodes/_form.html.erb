@@ -1,0 +1,52 @@
+<div class="col-md-7" style="padding-left:0px;">
+<%= bootstrap_form_with(model: node, local: true) do |form| %>
+  <% if node.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(node.errors.count, "error") %> prohibited this node from being saved:</h2>
+
+      <ul>
+      <% node.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.text_field :room_name, id: :node_room_name, :required => true %>
+  </div>
+
+  <div class="field">
+    <%= form.text_field :room_number, id: :node_room_number, :required => true %>
+  </div>
+
+  <div class="field">
+    <%= form.number_field :room_capacity, id: :node_room_capacity, :required => true %>
+  </div>
+
+  <div class="field">
+    <%= form.text_field :x, id: :node_x, :required => true %>
+  </div>
+
+  <div class="field">
+    <%= form.text_field :y, id: :node_y, :required => true %>
+  </div>
+
+  <div class="field">
+    <%= form.number_field :floor, id: :node_floor, :required => true %>
+  </div>
+
+  <div class="field">
+    <%= form.text_field :building, id: :node_building, :required => true %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Select_Children_Nodes %>
+    <%= collection_check_boxes(:node, :child_ids, Node.all, :id, :room_name) %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
+</div>
