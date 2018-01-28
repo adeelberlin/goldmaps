@@ -8,14 +8,14 @@ class Api::V1::NodesController < Api::ApiController
 
     if(params.has_key?(:floor) && params.has_key?(:building))
       @nodes = Node.where(:floor => params[:floor],:building => params[:building])
-    elsif(!params.has_key?(:floor).present?)
+    elsif(params.has_key?(:floor).present?)
+      @nodes = Node.where(:floor => params[:floor])
+    elsif(params.has_key?(:building).present?)
         @nodes = Node.where(:building => params[:building])
-    elsif(!params.has_key?(:building).present?)
-        @nodes = Node.where(:floor => params[:floor])
     else
       @nodes = Node.all
     end
-    
+
     respond_to do |format|
       format.any { render json: @nodes, content_type: 'application/json' }
     end
