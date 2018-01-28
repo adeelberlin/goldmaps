@@ -1,0 +1,99 @@
+<h2>GoldMaps API Documentation</h2>
+<hr/>
+
+<br/>
+<h4>Get All Nodes</h4>
+
+<p>
+  <a target="_blank" href="https://goldmaps.herokuapp.com/api/v1/nodes">https://goldmaps.herokuapp.com/api/v1/nodes</a>
+</p>
+
+<p>Sample Response: <p>
+
+<pre>
+  [
+    {
+      "id":3,
+      "room_name":"ANIME WAS A MISTAKE",
+      "x":"0.0",
+      "y":"2.0",
+      "room_capacity":200,
+      "room_number":"1.0",
+      "floor":7,
+      "building":"GOLD",
+      "children":[]
+    },
+
+    {
+      "id":2,
+      "room_name":"FAHIM PLS",
+      "x":"10.0",
+      "y":"0.0",
+      "room_capacity":4,
+      "room_number":"200.0",
+      "floor":2,
+      "building":"EDU",
+      "children":[]
+    }
+  ]
+</pre>
+<b>Returns all nodes in database with attributes in JSON format</b>
+
+<br/>
+<br/>
+<br/>
+<h4>Accepts Params:</h4>
+  <br/>
+  <p style="text-indent:10px"><b>Floor:</b></p>
+  <p style="text-indent:20px">- Takes integer value for floor.</p>
+  <p style="text-indent:20px">- For example <a href="https://goldmaps.herokuapp.com/api/v1/nodes?floor=1">
+    https://goldmaps.herokuapp.com/api/v1/nodes?floor=1</a>, which returns all nodes on first floor.</p>
+
+  <br/>
+  <p style="text-indent:10px"><b>Building:</b></p>
+  <p style="text-indent:20px">- Takes string value for building.</p>
+  <p style="text-indent:20px">- For example <a href="https://goldmaps.herokuapp.com/api/v1/nodes?building=GOLD">
+    https://goldmaps.herokuapp.com/api/v1/nodes?building=GOLD</a>, which returns all nodes in GOLD building.</p>
+
+
+<br/>
+  <p style="text-indent:10px"><b>Accepts Multiple Params:</b></p>
+  <p style="text-indent:20px">- For example <a href="https://goldmaps.herokuapp.com/api/v1/nodes?building=GOLD&floor=1">
+    https://goldmaps.herokuapp.com/api/v1/nodes?building=GOLD&floor=1</a>, returns all nodes on first floor in building GOLD.</p>
+
+
+<br/>
+<hr/>
+<br/>
+<h4>Get A Node</h4>
+
+<p>
+  <a target="_blank" href="https://goldmaps.herokuapp.com/api/v1/nodes/2">https://goldmaps.herokuapp.com/api/v1/nodes/2</a>
+</p>
+
+<p>Sample Response: <p>
+
+<pre>
+    {
+      "id":2,
+      "room_name":"FAHIM PLS",
+      "x":"10.0",
+      "y":"0.0",
+      "room_capacity":4,
+      "room_number":"200.0",
+      "floor":2,
+      "building":"EDU",
+      "children":[]
+    }
+</pre>
+<b>Returns a node from the database with node attributes in JSON format</b>
+
+<br/>
+<br/>
+<br/>
+<h4>Accepts Params:</h4>
+  <br/>
+  <p style="text-indent:10px"><b>Children:</b></p>
+  <p style="text-indent:20px">- Takes boolean value for children param, True/False.</p>
+  <p style="text-indent:20px">- For example <a href="https://goldmaps.herokuapp.com/api/v1/nodes/4?children=true">
+    https://goldmaps.herokuapp.com/api/v1/nodes/4?children=true</a>, which only returns all the children on parent node.</p>

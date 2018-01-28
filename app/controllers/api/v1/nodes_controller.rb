@@ -5,7 +5,17 @@ class Api::V1::NodesController < Api::ApiController
   # GET /nodes
   # GET /nodes.json
   def index
-    @nodes = Node.all
+
+    if(params.has_key?(:floor) && params.has_key?(:building))
+      @nodes = Node.where(:floor => params[:floor],:building => params[:building])
+    elsif(!params.has_key?(:floor).present?)
+        @nodes = Node.where(:building => params[:building])
+    elsif(!params.has_key?(:building).present?)
+        @nodes = Node.where(:floor => params[:floor])
+    else
+      @nodes = Node.all
+    end
+    
     respond_to do |format|
       format.any { render json: @nodes, content_type: 'application/json' }
     end
@@ -14,7 +24,13 @@ class Api::V1::NodesController < Api::ApiController
   # GET /nodes/1
   # GET /nodes/1.json
   def show
-    @node = Node.find(params[:id])
+    if(params.has_key?(:children))
+       if(params[:children] == "true")
+         @node = Node.find(params[:id]).children
+       end
+     else
+       @node = Node.find(params[:id])
+    end
     render json: @node
   end
 

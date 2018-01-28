@@ -3,6 +3,8 @@ Rails.application.routes.draw do
 
   resources :nodes
 
+  get '/api_doc', to: 'static#api'
+
   namespace :api do
     namespace :v1 do
       resources :nodes, only:[:index, :show]
