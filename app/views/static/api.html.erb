@@ -97,3 +97,12 @@
   <p style="text-indent:20px">- Takes boolean value for children param, True/False.</p>
   <p style="text-indent:20px">- For example <a target="_blank" href="https://goldmaps.herokuapp.com/api/v1/nodes/4?children=true">
     https://goldmaps.herokuapp.com/api/v1/nodes/4?children=true</a>, which only returns all the children on parent node.</p>
+
+<br/>
+<hr/>
+<br/>
+<h4>Current User Details:</h4>
+<p style="text-indent:20px">- Email: <%= current_user.email %></p>
+<p style="text-indent:20px">- Authentication Token: <%= current_user.authentication_token %></p>
+<p style="text-indent:10px">To access API pass in email and token as params:</p>
+<p style="text-indent:20px">https://goldmaps.herokuapp.com/api/v1/nodes?email=<%= current_user.email %>&token=<%= current_user.authentication_token %></p>

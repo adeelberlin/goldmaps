@@ -1,11 +1,10 @@
 class Api::V1::NodesController < Api::ApiController
-
   before_action :set_node, only: [:show, :edit, :update, :destroy]
+  before_action :check_token
 
   # GET /nodes
   # GET /nodes.json
   def index
-
     if(params.has_key?(:floor) && params.has_key?(:building))
       @nodes = Node.where(:floor => params[:floor],:building => params[:building])
     elsif(params.has_key?(:floor).present?)
