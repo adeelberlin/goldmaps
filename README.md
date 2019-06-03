@@ -15,7 +15,6 @@ Project Info:
   - Bootstrap Gem
 
 * Configuration
- - Steps:
   - Clone the respository from GIT
   - Run the bundle install command to install all the dependencies
   - Run the rake db:migrate to migrate all the tables into the database
@@ -25,7 +24,7 @@ Project Info:
   - PostgreSQL
 
 * How to run the test suite
- - Run the rake test command to run all the test files.
+  - Run the rake test command to run all the test files.
 
 * Deployment instructions
   - Deployed the project using Heroku cloud.
