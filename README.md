@@ -15,10 +15,11 @@ Project Info:
   - Bootstrap Gem
 
 * Configuration
- - Clone the respository from GIT
- - Run the bundle install command to install all the dependencies
- - Run the rake db:migrate to migrate all the tables into the database
- - Run the rails s command to start the server locally
+ - Steps:
+  - Clone the respository from GIT
+  - Run the bundle install command to install all the dependencies
+  - Run the rake db:migrate to migrate all the tables into the database
+  - Run the rails s command to start the server locally
 
 * Database
   - PostgreSQL
